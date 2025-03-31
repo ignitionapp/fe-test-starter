@@ -1,9 +1,12 @@
 import React from 'react'
 import { render, RenderOptions } from '@testing-library/react'
 import { ChakraProvider } from '@chakra-ui/react'
+import { createSystem, defaultConfig } from '@chakra-ui/react'
+
+const system = createSystem(defaultConfig)
 
 const Provider = ({ children }: { children: React.ReactNode }) => {
-  return <ChakraProvider>{children}</ChakraProvider>
+  return <ChakraProvider value={system}>{children}</ChakraProvider>
 }
 
 const customRender = (ui: React.ReactElement, options?: RenderOptions) =>
